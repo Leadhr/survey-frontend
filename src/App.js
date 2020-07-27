@@ -1,25 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Survey from "./components/surveywrapper/surveywrapper";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Navbar from "react-bootstrap/Navbar";
+import "./App.css";
+import Surveywrapper from "./components/surveywrapper/surveywrapper";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container fluid>
+      <Navbar className="navbar">
+        <Navbar.Brand>
+          <img
+            src="https://leadhr.co/wp-content/themes/leadhr/img/logo.svg"
+            height="35"
+          />
+        </Navbar.Brand>
+      </Navbar>
+      <Row className="d-flex justify-content-center">
+        <Surveywrapper />
+      </Row>
+    </Container>
   );
 }
 
