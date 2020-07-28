@@ -4,7 +4,6 @@ import Answerbox from "../answerbox/answerbox";
 import { Col } from "react-bootstrap";
 
 function Survey(props) {
-  console.log("props", props);
   if (props.question) {
     return (
       <Col md="auto" className="justify-content-center">

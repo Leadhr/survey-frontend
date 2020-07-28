@@ -7,6 +7,15 @@ function Surveywrapper() {
   const [questionBank, setQuestionBank] = useState([])
   const [answerBank, setAnswerBank] = useState(Array(112).fill(null))
   const [current, setCurrent] = useState(110)
+  //holds response data from submission attempt
+  const [submitData, setSubmitData] = useState([])
+
+  //reset survey
+  function resetSurvey() {
+    setCurrent(0)
+    setAnswerBank(Array(112).fill(null))
+    setComplete(false)
+  }
 
   //takes two args, answer and index
   function handleSetAnswer(answer, index) {
@@ -19,8 +28,18 @@ function Surveywrapper() {
     setCurrent(num)
   }
 
-  function submitAnswers() {
-    //submit answers
+  function submitAnswers(name) {
+    console.log('submitted')
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json'},
+      body: JSON.stringify({name: name, answers: answerBank})
+    };
+    console.log(requestOptions.body)
+    fetch('http://localhost:3001/answers', requestOptions)
+      .then(response => response.json())
+      .then(data => setSubmitData([...submitData].push(data.id)))
+    setComplete(true)
   }
 
   useEffect(() => {
@@ -45,7 +64,7 @@ function Surveywrapper() {
       <Survey setAnswer={handleSetAnswer} setCurrent={handleSetCurrent} current={current} question={questionBank[Math.floor(current / 2)]} />
     );
   } else {
-    return <Submission />
+    return <Submission complete={complete} resetSurvey={resetSurvey} submitAnswers={submitAnswers}/>
   }
 }
 

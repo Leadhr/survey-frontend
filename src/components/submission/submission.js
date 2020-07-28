@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import Button from 'react-bootstrap/Button'
 import { Form } from 'react-bootstrap'
+import Reset from '../reset/reset'
 
-function Submission(){
+function Submission(props){
 
     const [submitted, setSubmitted] = useState(false)
     const [value, setValue] = useState('')
@@ -13,11 +14,13 @@ function Submission(){
 
     function handleSubmit(e) {
         //call submit from surveywrapper
+        props.submitAnswers(value)
         setSubmitted(true)
+        e.preventDefault()
     }
 
     return (
-        !submitted ? <Form onSubmit={handleSubmit}>
+        !props.complete ? <Form onSubmit={handleSubmit}>
         <Form.Label>
             Name: 
         </Form.Label>
@@ -25,7 +28,7 @@ function Submission(){
         <Button type="submit">
             Submit
         </Button>
-    </Form> : <h1>thanks, {value}</h1>
+    </Form> : <Reset resetSurvey={props.resetSurvey} ></Reset>
     )
 }
 
