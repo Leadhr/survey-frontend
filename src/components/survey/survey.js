@@ -4,16 +4,16 @@ import Answerbox from "../answerbox/answerbox";
 import { Col } from "react-bootstrap";
 
 function Survey(props) {
-    console.log('props', props)
+  console.log("props", props);
   if (props.question) {
     return (
-        <Col>
-          <Prompt text={ props.question.question }/>
-          <Answerbox answers={ props.question.answers} />
-        </Col>
-      );
+      <Col md="auto" className="justify-content-center">
+        <Prompt current={props.current} text={props.question.question} />
+        <Answerbox setAnswer={props.setAnswer} setCurrent={props.setCurrent} current={props.current} answers={props.question.answers} />
+      </Col>
+    );
   } else {
-      return null
+    return null;
   }
 }
 
