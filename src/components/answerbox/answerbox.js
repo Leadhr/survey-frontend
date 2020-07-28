@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Answer from "../answer/answer";
 import ListGroup from "react-bootstrap/ListGroup";
+import './answerbox.css'
 
 function Answerbox(props) {
   const [hidden, setHidden] = useState(4);
@@ -20,7 +21,7 @@ function Answerbox(props) {
 
   if (props.answers) {
     return (
-      <ListGroup>
+      <ListGroup className="selector">
         {hidden !== 0 ? (
           <ListGroup.Item>
             <Answer

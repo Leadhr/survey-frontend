@@ -20,7 +20,7 @@ function Submission(props){
     }
 
     return (
-        !props.complete ? <Form onSubmit={handleSubmit}>
+        !submitted ? <Form onSubmit={handleSubmit}>
         <Form.Label>
             Name: 
         </Form.Label>
@@ -28,7 +28,7 @@ function Submission(props){
         <Button type="submit">
             Submit
         </Button>
-    </Form> : <Reset resetSurvey={props.resetSurvey} ></Reset>
+    </Form> : <Reset setSubmitted={setSubmitted} resetSurvey={props.resetSurvey} ></Reset>
     )
 }
 

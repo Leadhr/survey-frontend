@@ -6,7 +6,7 @@ function Surveywrapper() {
   const [complete, setComplete] = useState(false)
   const [questionBank, setQuestionBank] = useState([])
   const [answerBank, setAnswerBank] = useState(Array(112).fill(null))
-  const [current, setCurrent] = useState(110)
+  const [current, setCurrent] = useState(0)
   //holds response data from submission attempt
   const [submitData, setSubmitData] = useState([])
 

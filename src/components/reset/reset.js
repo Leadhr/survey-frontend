@@ -5,11 +5,16 @@ function Reset(props) {
 
     function handleSubmit(e) {
         props.resetSurvey()
+        props.setSubmitted(true)
         e.preventDefault()
     }
 
+    function refreshPage() {
+        window.location.reload(false)
+    }
+
     return (
-        <Button onSubmit={handleSubmit}>
+        <Button onClick={handleSubmit}>
             retake assesment
         </Button>
     )
