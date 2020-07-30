@@ -1,26 +1,23 @@
 import React from "react";
-import Survey from "./components/surveywrapper/surveywrapper";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Navbar from "react-bootstrap/Navbar";
 import "./App.css";
 import Surveywrapper from "./components/surveywrapper/surveywrapper";
 
 function App() {
   return (
-    <Container fluid>
-      <Navbar className="navbar">
-        <Navbar.Brand>
+    <div class="container-fluid">
+      <div class="navbar navbar0">
+        <a class="navbar-brand" href="/">
           <img
             src="https://leadhr.co/wp-content/themes/leadhr/img/logo.svg"
             height="35"
+            alt="logo"
           />
-        </Navbar.Brand>
-      </Navbar>
-      <Row className="d-flex justify-content-center">
+        </a>
+      </div>
+      <div class="row d-flex justify-content-center">
         <Surveywrapper />
-      </Row>
-    </Container>
+      </div>
+    </div>
   );
 }
 

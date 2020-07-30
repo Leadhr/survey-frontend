@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Answer from "../answer/answer";
-import ListGroup from "react-bootstrap/ListGroup";
 import './answerbox.css'
 
 function Answerbox(props) {
@@ -21,9 +20,9 @@ function Answerbox(props) {
 
   if (props.answers) {
     return (
-      <ListGroup className="selector">
+      <ul class="list-group selector">
         {hidden !== 0 ? (
-          <ListGroup.Item>
+          <div class="list-group-item">
             <Answer
               hideAnswer={hideAnswer}
               setAnswer={props.setAnswer}
@@ -32,11 +31,11 @@ function Answerbox(props) {
               number={0}
               answer={props.answers[0].text}
             />
-          </ListGroup.Item>
+          </div>
         ) : null}
 
         {hidden !== 1 ? (
-          <ListGroup.Item>
+          <div class="list-group-item">
             <Answer
               hideAnswer={hideAnswer}
               setAnswer={props.setAnswer}
@@ -45,10 +44,10 @@ function Answerbox(props) {
               number={1}
               answer={props.answers[1].text}
             />
-          </ListGroup.Item>
+          </div>
         ) : null}
         {hidden !== 2 ? (
-          <ListGroup.Item>
+          <div class="list-group-item">
             <Answer
               hideAnswer={hideAnswer}
               setAnswer={props.setAnswer}
@@ -57,9 +56,9 @@ function Answerbox(props) {
               number={2}
               answer={props.answers[2].text}
             />
-          </ListGroup.Item>
+          </div>
         ) : null}
-      </ListGroup>
+      </ul>
     );
   } else {
     return null;
