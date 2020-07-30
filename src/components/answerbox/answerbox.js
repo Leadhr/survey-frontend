@@ -20,9 +20,9 @@ function Answerbox(props) {
 
   if (props.answers) {
     return (
-      <ul class="list-group selector">
+      <ul className="list-group selector">
         {hidden !== 0 ? (
-          <div class="list-group-item">
+          <div className="list-group-item">
             <Answer
               hideAnswer={hideAnswer}
               setAnswer={props.setAnswer}
@@ -35,7 +35,7 @@ function Answerbox(props) {
         ) : null}
 
         {hidden !== 1 ? (
-          <div class="list-group-item">
+          <div className="list-group-item">
             <Answer
               hideAnswer={hideAnswer}
               setAnswer={props.setAnswer}
@@ -47,7 +47,7 @@ function Answerbox(props) {
           </div>
         ) : null}
         {hidden !== 2 ? (
-          <div class="list-group-item">
+          <div className="list-group-item">
             <Answer
               hideAnswer={hideAnswer}
               setAnswer={props.setAnswer}

@@ -20,13 +20,13 @@ function Submission(props) {
     <form onSubmit={handleSubmit}>
       <label>Name:</label>
       <input
-        class="form-control"
+        className="form-control"
         onChange={handleChange}
         value={value}
         type="username"
         placeholder="enter your name"
       />
-      <button class="btn" type="submit">
+      <button className="btn" type="submit">
         Submit
       </button>
     </form>

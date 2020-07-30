@@ -1,22 +1,19 @@
 import React from "react";
+import {Route, BrowserRouter, Switch} from 'react-router-dom'
 import "./App.css";
 import Surveywrapper from "./components/surveywrapper/surveywrapper";
+import Auth from "./components/auth/auth"
 
 function App() {
   return (
-    <div class="container-fluid">
-      <div class="navbar navbar0">
-        <a class="navbar-brand" href="/">
-          <img
-            src="https://leadhr.co/wp-content/themes/leadhr/img/logo.svg"
-            height="35"
-            alt="logo"
-          />
-        </a>
-      </div>
-      <div class="row d-flex justify-content-center">
-        <Surveywrapper />
-      </div>
+    <div className="App">
+      <BrowserRouter>
+        <Switch>
+          <Route path="/" exact component={Auth}></Route>
+          <Route path="/survey" component={Surveywrapper}></Route>
+          <Route component={Error}></Route>
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 }
