@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Survey from "../survey/survey";
 import Submission from "../submission/submission";
+import Navbar from "../navbar/navbar";
 
 function Surveywrapper() {
   const [complete, setComplete] = useState(false);
@@ -35,7 +36,6 @@ function Surveywrapper() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name: name, answers: answerBank }),
     };
-    console.log(requestOptions.body);
     fetch("http://localhost:3001/answers", requestOptions)
       .then((response) => response.json())
       .then((data) => setSubmitData([...submitData].push(data.id)));
@@ -43,7 +43,7 @@ function Surveywrapper() {
   }
 
   useEffect(() => {
-    if (current >= 112) {
+    if (current >= 115) {
       setComplete(true);
     }
   }, [current]);
@@ -58,19 +58,10 @@ function Surveywrapper() {
       .catch(console.log);
   }, []);
 
-  // console.log(questionBank)
   if (!complete) {
     return (
-      <nav className="container-fluid">
-        <div className="navbar navbar0">
-          <a className="navbar-brand" href="/">
-            <img
-              src="https://leadhr.co/wp-content/themes/leadhr/img/logo.svg"
-              height="35"
-              alt="logo"
-            />
-          </a>
-        </div>
+      <div className="container-fluid">
+        <Navbar />
         <div className="row d-flex justify-content-center">
           <Survey
             setAnswer={handleSetAnswer}
@@ -79,7 +70,7 @@ function Surveywrapper() {
             question={questionBank[Math.floor(current / 2)]}
           />
         </div>
-      </nav>
+      </div>
     );
   } else {
     return (

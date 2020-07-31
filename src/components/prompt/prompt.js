@@ -2,10 +2,11 @@ import React from 'react'
 import './prompt.css'
 
 function Prompt(props) {
-    if (props.text) {
+
+    if (props.question) {
         return (
             <div className="prompt">
-                <p>{Math.floor(props.current / 2 + 1)}. {props.text}</p>
+                <p> {props.question.number}. {props.question.question}</p>
             </div>
         )
     } else {
